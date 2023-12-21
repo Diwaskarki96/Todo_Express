@@ -1,15 +1,22 @@
 const todoModel = require("./todo.model");
 
 const create = async (payload) => {
-  await todoModel.create(payload);
+  return await todoModel.create(payload);
 };
 
-const list = () => {};
+const list = async () => {
+  return await todoModel.find();
+};
 
-const getById = (id) => {};
+const getById = async (id) => {
+  return await todoModel.findOne({ id });
+};
 
-const updateById = (id, payload) => {};
+const updateById = async (id, payload) => {
+  return await todoModel.updateOne({ id }, payload);
+};
 
-const deleteById = (id) => {};
-
+const deleteById = async (id) => {
+  return await todoModel.deleteOne({ id });
+};
 module.exports = { create, list, getById, updateById, deleteById };
