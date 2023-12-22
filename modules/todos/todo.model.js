@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const todoSchema = mongoose.Schema({
+const todoSchema = new Schema({
   title: { type: String, required: true },
-  status: { type: String, emu: ["pending", "completed"], default: "pending" },
+  status: { type: String, enum: ["pending", "completed"], default: "pending" },
   created_at: { type: Date, default: Date.now() },
 });
 
